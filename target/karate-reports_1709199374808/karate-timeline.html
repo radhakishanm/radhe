@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/feature\/karate[1:6]","start":1709199128278,"end":1709199130709,"title":"src\/test\/java\/feature\/karate[1:6] 15:02:08.278-15:02:10.709 Token Generation"},{"id":2,"group":1,"content":"src\/test\/java\/feature\/karate[2:16]","start":1709199130714,"end":1709199132093,"title":"src\/test\/java\/feature\/karate[2:16] 15:02:10.714-15:02:12.093 GET Request","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/feature\/karate[3:21]","start":1709199132103,"end":1709199132103,"title":"src\/test\/java\/feature\/karate[3:21] 15:02:12.103-15:02:12.103 POST Request","className":"failed"},{"id":4,"group":1,"content":"src\/test\/java\/feature\/karate[4:28]","start":1709199132109,"end":1709199133423,"title":"src\/test\/java\/feature\/karate[4:28] 15:02:12.109-15:02:13.423 PUT Request","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/feature\/karate[5:34]","start":1709199133434,"end":1709199134467,"title":"src\/test\/java\/feature\/karate[5:34] 15:02:13.434-15:02:14.467 PATCH Request","className":"failed"},{"id":6,"group":1,"content":"src\/test\/java\/feature\/karate[6:40]","start":1709199134477,"end":1709199135521,"title":"src\/test\/java\/feature\/karate[6:40] 15:02:14.477-15:02:15.521 DELETE Request","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
