@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/feature\/karate[1:9]","start":1709218751581,"end":1709218754190,"title":"src\/test\/java\/feature\/karate[1:9] 20:29:11.581-20:29:14.190 GET Request","className":"failed"},{"id":2,"group":1,"content":"src\/test\/java\/feature\/karate[2:16]","start":1709218754197,"end":1709218755594,"title":"src\/test\/java\/feature\/karate[2:16] 20:29:14.197-20:29:15.594 POST Request"},{"id":3,"group":1,"content":"src\/test\/java\/feature\/karate[3:24]","start":1709218755597,"end":1709218757026,"title":"src\/test\/java\/feature\/karate[3:24] 20:29:15.597-20:29:17.026 PUT Request","className":"failed"},{"id":4,"group":1,"content":"src\/test\/java\/feature\/karate[4:30]","start":1709218757031,"end":1709218758473,"title":"src\/test\/java\/feature\/karate[4:30] 20:29:17.031-20:29:18.473 PATCH Request","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/feature\/karate[5:36]","start":1709218758478,"end":1709218759915,"title":"src\/test\/java\/feature\/karate[5:36] 20:29:18.478-20:29:19.915 DELETE Request","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
